@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--引入其他配置文件-->
+<import resource="applicationContext-Person.xml"/>
+
+
+<!--    通过全限定名的类的构造方法来注册,重点-->
+    <bean id="User" class="com.ly.dao.impl.UserDaoImpl" init-method="init" destroy-method="destroy">
+    </bean>
+
+<!--通过全限定名的工厂类的工厂方法来注册-->
+    <bean id="User1" class="com.ly.factory.StaticFactory" factory-method="getUserDao">
+    </bean>
+<!--要先有工厂实例，才有工厂方法注册-->
+<bean id="factory" class="com.ly.factory.DynamicFactory"></bean>
+    <bean id="User2" factory-bean="factory" factory-method="getUserDao"></bean>
+
+<!--UserService-->
+<bean id="UserService" class="com.ly.service.impl.UserServiceImpl"></bean>
+
+<!--在容器内部将UserDao给UserService-->
+<!--<bean id="UserService2" class="com.ly.service.impl.UserServiceImpl">-->
+<!--&lt;!&ndash;name指的是属性的名字，名字是set方法后面的第一个字母去大写，-->
+<!--    setUserDao的set后的userDao-->
+<!--    ref的是-->
+<!--&ndash;&gt;-->
+<!--    <property name="userDao" ref="User"></property>-->
+<!--</bean>-->
+
+<!--&lt;!&ndash;    xmlns:p="http://www.springframework.org/schema/p"引入p命名空间-->
+<!--用于简略地写propertyname，如果要引入一个对象，就写p:这个对象-ref=""-->
+<!--    &ndash;&gt;-->
+<!--<bean name="UserService3" class="com.ly.service.impl.UserServiceImpl"-->
+<!--      p:userDao-ref="User">-->
+<!--</bean>-->
+<!--构造方法注入,如果什么参数都不写,就默认无参构造-->
+<bean name="UserService4" class="com.ly.service.impl.UserServiceImpl">
+    <constructor-arg name="userDao" ref="User"></constructor-arg>
+<!--name为构造方法中的对象参数名,ref代表引用容器中的bean的id-->
+</bean>
+
+
+
+</beans>
+

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+
+    <bean name="Pet" class="com.ly.dao.impl.Pet">
+        <property name="name" value="tom"/>
+        <property name="type" value="cat"/>
+    </bean>
+    <bean name="Pet2" class="com.ly.dao.impl.Pet">
+        <property name="name" value="jerry"/>
+        <property name="type" value="mouse"/>
+    </bean>
+    <bean name="PersonDao" class="com.ly.dao.impl.PersonDaoImpl">
+        <property name="list2">
+            <list>
+                <!--是普通类型就用value,不是普通类型就用ref-->
+                <value>aaa</value>
+                <value>bbb</value>
+                <value>ccc</value>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <!--如果是引用对象则用xx-ref的那个,引用已存入容器中的id
+                    key可以乱取,但是 -ref的那个不能乱取名
+                -->
+                <entry key="p1" value-ref="Pet"></entry>
+                <entry key="p2" value-ref="Pet2"></entry>
+            </map>
+        </property>
+
+        <property name="properties">
+            <props>
+                <prop key="username">root</prop>
+                <prop key="password">123456</prop>
+            </props>
+        </property>
+    </bean>
+
+
+
+
+
+</beans>
