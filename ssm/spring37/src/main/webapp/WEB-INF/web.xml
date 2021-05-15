@@ -4,6 +4,24 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+<!--  配置一个全局过滤的filter-->
+<filter>
+  <filter-name>CharacterEncodingFilter</filter-name>
+  <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+  <init-param>
+    <param-name>encoding</param-name>
+    <param-value>UTF-8</param-value>
+  </init-param>
+</filter>
+<filter-mapping>
+  <filter-name>CharacterEncodingFilter</filter-name>
+  <url-pattern>/*</url-pattern>
+<!--配置对哪个资源进行过滤，这里/*代表对所有资源都进行过滤-->
+</filter-mapping>
+
+<!--  -->
+
+
 <!--配置SpringMVC的前端控制器-->
 <servlet>
   <servlet-name>DispatcherServlet</servlet-name>
@@ -23,6 +41,7 @@
   <servlet-name>DispatcherServlet</servlet-name>
   <url-pattern>/</url-pattern>
 <!--所有url-->
+<!--  此时会将jquery也当成requestmapping进行匹配-->
 </servlet-mapping>
 
 
@@ -39,6 +58,10 @@
 <!--</listener>-->
 
 <!--替代上面-->
+<!-- 这个的作用是在web应用启动时加载spring的配置文件，创建applicationcontext，将其存到最大的servletcontext中
+   需要全局初始化参数即上面的context-param
+  ppt：03 p3
+-->
 <listener>
   <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 </listener>

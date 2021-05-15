@@ -87,10 +87,19 @@ public class UserController3 {
     //ResponseBody是个空的
     @RequestMapping("/quick15")
     public void save15(@RequestBody List<User>userList)throws IOException{
-            System.out.println(userList);
+//            参数中的RequestBody意味着把请求体的内容直接封装到我的userList中
+//           前提：客户端发送的是一个json格式的数据，contentType:"application/json;charset=utf-8"
+        System.out.println(userList);
     }
 
 
+
+    @ResponseBody
+    @RequestMapping("/quick16")
+    public void save16(String username) throws IOException{
+        //客户端在访问时提交的参数有username，自动封到形参的位置
+        System.out.println(username);
+    }
 
 
 

@@ -21,6 +21,7 @@
     <input type="text" name="userList[1].age"><br>
     <input type="submit" value="提交"><br></form>
 
-
+<%--解决提交中文乱码问题--%>
+<%--需要配一个filter --%>
 </body>
 </html>
