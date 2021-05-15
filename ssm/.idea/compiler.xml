@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="aaa" />
         <module name="spring3" />
         <module name="spring37" />
         <module name="spring2" />
@@ -13,5 +14,8 @@
         <module name="spring1" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring69" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

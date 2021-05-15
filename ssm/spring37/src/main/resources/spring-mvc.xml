@@ -48,9 +48,10 @@
     <mvc:annotation-driven/>
 
 <!--    开放资源的访问-->
+<!--    直接找到对应的静态资源返回就行-->
     <mvc:resources mapping="/js/**" location="/js/"/>
 
-<!--    mapping代表映射地址，发请求后找js下的jqery，location代表是哪个目录下的资源对外开放-->
+<!--    mapping代表映射地址，发请求后找js下的jquery，location代表是哪个目录下的资源对外开放-->
 <!--    //spring-mvc整个架构前端控制器是dispatcherservlet-->
 <!--web.xml配置前端控制器，其中dispatcherservlet的url为/，意味着将所有的都识别为requestmapping-->
 <!--    所以js的会访问不到-->
@@ -58,7 +59,7 @@
 <!--    直接找到对应的静态资源返回-->
 
     <mvc:default-servlet-handler></mvc:default-servlet-handler>
-<!--    代表requestmapping找不到后交由原始的容器即tomcat找内部资源，可替代上面的<mvc:resources-->
+<!--    代表requestmapping找不到后交由原始的容器即tomcat找内部静态资源，可替代上面的<mvc:resources-->
 
 
 

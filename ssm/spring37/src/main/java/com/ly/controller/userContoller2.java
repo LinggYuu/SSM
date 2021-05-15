@@ -19,6 +19,18 @@ public class userContoller2 {
     @ResponseBody
     //期望springmvc自动把User转成json格式字符串
     //需要配置
+    /*
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+             <list>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                </bean>
+            </list>
+        </property></bean>
+        或
+        <mvc:annotation-driven/>
+        ppt04-16
+     */
     public User save9() throws IOException {
         User user = new User();
         user.setUsername("lingyu2");
