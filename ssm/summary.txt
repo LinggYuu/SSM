@@ -1,0 +1,82 @@
+传数据者则用request，响应者则用response，响应者也可成为传数据者，传数据者本身也可以作为响应者。如寄信人与收信人，收信人回信的时候自己本身也是寄信人，寄信人收到回信自己也是收信人的角色。
+
+SpringMVC数据响应
+1.需要页面跳转时的办法
+1.1直接返回字符串形式的地址，会与前后缀拼接
+1.2返回M&V对象，在返回使用setViewName方法来指定页面
+2.在页面跳转的时候需要夹带数据
+2.1通过request对象中的setAttribute方法来向request域中存数据
+2.2通过M&V的addObject方法设置
+2.3若想直接将字符串作为响应体返回则只需要reponse.getWriter().print(xxx)即可
+此时不用视图跳转，方法返回void
+2.4直接返回字符串时通过@ResponseBody注解告知mvc其返回的字符串不是跳转，而是直接在http响应体中返回
+2.5在异步项目中常用json格式字符交互，可以手动拼接json格式串返回
+2.6用jackson进行json格式串的格式转换，objectmapper
+2.7返回对象或集合时可以通过mvc对这类数据进行json格式转换并回写，需配置xml
+2.8mvc注解驱动直接代替配置，自动转换对象或集合为json串
+
+Springmvc获得请求数据
+1.获得请求参数
+在最初始的情况下，客户端请求参数 ？Name=value&name=value...
+Mvc可以接收如下类型参数：基本类型参数，pojo类型参数，数组类型参数，集合类型参数
+
+1.1基本类型参数获取
+只要业务方法（controller方法）中的参数名与请求参数的name，会自动映射
+
+1.2pojo类型参数获取
+只要业务方法中的pojo参数的属性名与请求参数的name一致，则自动映射
+
+1.3数组类型参数获取
+只要业务方法中数组名称与请求参数的name一致，则自动映射
+
+1.4集合类型参数获取
+获取集合参数时，需要将集合包装到一个pojo中才可以。ppt04-23
+当用ajax提交时可以指定contentType为json格式，那么在方法参数的位置使用
+@requestBody可以直接接收集合数据而无需使用pojo进行包装ppt04-24
+
+1.5post请求乱码问题，设置filter过滤器进行编码的过滤
+
+1.6※当请求的参数与controller业务方法中的参数名不一致时使用@RequestParam进行绑定ppt04-28   关于@RequestParam ppt04-29
+
+1.7Restful风格的参数	/user/{id}  绑定参数 比？Name=value好看点,可以通过@PathVariable进行占位符的匹配获取工作，它会将匹
+配到的赋给后面的诸如string类型的参数
+注意后面的参数名如String name中的name可以随便写，但是PathVariable中的value名称必须与url地址中的占位符名称一致-video69类
+
+1.8自定义类型转换器，前提知识：客户端请求的任何数据到达服务端后都是字符串，然而发现方法内部的形参如果是int之类的数字类型的话也能
+够正常封装，说明mvc框架已经自动把字符串转成数字封装到参数上。结论：mvc默认提供了一些内置类型转换器，但不是所有类型都提供转换，所以
+需要自定义类型转换器。
+    1.8.1步骤：1.创建转换器类
+              2.在mvc.xml中配置bean
+              3.在类中引用转换器，通过转换器工厂造对象，然后给annotation-driven用于注解调用
+
+2.获取Servlet相关api
+    springmvc支持使用原始ServletAPI对象作为控制器方法参数进行注入，常用的对象如下：
+        HttpServletRequest    HttpServletResponse HttpSession
+    获取对象的方式，只需要在想要获取这些对象的方法的参数位置注入对应的形参就可以了。?
+    一个controller方法其实不是我们调用的，是我们定义的，最终调用者是框架，因而方法中的参数都是形参，谁调用了这个方法谁就
+    传递实际参数，既然是mvc框架调用方法，它在调用方法时发现需要哪些参数就会帮忙进行相应传递。-video
+2.1获取请求头
+        //通过f12进入控制台，再到network栏进行抓包，可以看到requestheader等，其中有host等信息
+    通过@RequestHeader，相当于web时期的request.getHeader(name)
+    通过@CookieValue可以直接获取Cookie的值，cookie也是一种header
+
+3文件上传
+    3.1文件上传三要素
+        表单项type=“file”
+        表单的提交方式是post
+        表单的enctype属性是多部分表单形式，即enctype=“multipart/form-data”
+        当form表单修改为多部分表单时，request.getParameter()将失效。
+        enctype=“application/x-www-form-urlencoded”时，form表单的正文内容格式是：key=value&key=value&key=value
+        当form表单的enctype取值为Mutilpart/form-data时，请求正文内容就变成多部分形式
+        服务端能获取当前表单的所有数据
+    3.2单文件上传三步骤 quick22
+        导入fileupload和io坐标
+        配置文件上传解析器
+        编写文件上传代码
+
+    3.3多文件上传
+        快捷键 xxx.for直接生成for循环
+
+
+    P79
+

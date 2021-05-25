@@ -45,7 +45,7 @@
 <!--mvc注解驱动-->
 <!--直接集成了json转换，替代上面的配置-->
 <!--报错处理https://blog.csdn.net/darwinlong/article/details/77236813-->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven  conversion-service="conversionService"/>
 
 <!--    开放资源的访问-->
 <!--    直接找到对应的静态资源返回就行-->
@@ -61,6 +61,24 @@
     <mvc:default-servlet-handler></mvc:default-servlet-handler>
 <!--    代表requestmapping找不到后交由原始的容器即tomcat找内部静态资源，可替代上面的<mvc:resources-->
 
+<!--    声明转换器-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="com.ly.converter.DateConverter"></bean>
+            </list>
+        </property>
+    </bean>
+
+<!--    配置文件上传解析器-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+<!--            上传文件总大小-->
+        <property name="maxUploadSize" value="5242800"/>
+<!--        上传单个文件的大小-->
+        <property name="maxUploadSizePerFile" value="5242800"/>
+<!--        上传文件的编码类型-->
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
 
 
 </beans>

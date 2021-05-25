@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<div th:text="${pageContext.request.contextPath}"></div>
+nihao!
 </body>
 </html>

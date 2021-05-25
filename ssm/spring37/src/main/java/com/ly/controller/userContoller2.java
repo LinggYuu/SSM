@@ -36,7 +36,6 @@ public class userContoller2 {
         user.setUsername("lingyu2");
         user.setAge(183);
         return user;
-
     }
 
 }
