@@ -1,0 +1,15 @@
+Spring练习
+创建工程（Project&Module）
+导入静态页面（见资料jsp页面）
+导入需要坐标（见资料中的pom.xml）
+创建包结构（controller、service、dao、domain、utils）
+导入数据库脚本（见资料test.sql）
+创建POJO类（见资料User.java和Role.java）
+创建配置文件（applicationContext.xml、spring-mvc.xml、jdbc.properties、web.xml、log4j.properties）
+    applicationContext.xml为spring的核心配置文件(主要配一些bean)
+    spring-mvc.xml为springMVC的核心配置文件(配注解驱动,内部资源视图解析器,静态资源访问等)
+    jdbc.properties用于抽取数据库连接信息,用于解耦
+    log4j.properties为日志配置文件,直接抄扔进去
+spring靠一个listener与web达成关系(contextloaderlistener),springmvc靠dispatcherServlet与web达成关系
+
+p95

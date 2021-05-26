@@ -11,7 +11,9 @@
         <module name="spring37" />
         <module name="spring2" />
         <module name="sometest" />
+        <module name="springpractise" />
         <module name="spring1" />
+        <module name="jdbc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

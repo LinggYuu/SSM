@@ -1,0 +1,24 @@
+JDBCTemplate
+1.开发步骤
+    导入spring-jdbc和spring-tx坐标
+    创建数据库表和实体
+    创建JdbcTemplate对象
+    执行数据库操作
+    具体为D:\GitHub\SSM\ssm\jdbc\src\main\java\com\ly\test\JdbcTemplateTest.java
+
+    其中JdbcTemplate对象为手动new的，还有数据源对象。能否交由spring来new---可以
+    全可以用注入
+    通过Spring产生模板对象JdbcTemplateTest.java中test2
+    通过properties文件解耦,需要在applicationContext.xml中加载配置
+    前提:xmlns:context="http://www.springframework.org/schema/context"
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+             <context:property-placeholder location="classpath:jdbc.properties"/>
+             通过${}提取
+
+2.JDBCTemplate常用操作
+    增删改查,其中增删改使用update方法,查使用query方法
+    要区分Query和QueryForObject中的各类方法,其中参数不同就有很大不同
+    如果要得到的结果为实体,则需要用BeanPropertyRowMapper封装,否则用一个简单类型.class即可,即其参数名为RequiredType
+
+
+  后续被mybatis替代了

@@ -3,10 +3,12 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/aaa" />
+    <file type="web" url="file://$PROJECT_DIR$/jdbc" />
     <file type="web" url="file://$PROJECT_DIR$/spring1" />
     <file type="web" url="file://$PROJECT_DIR$/spring2" />
     <file type="web" url="file://$PROJECT_DIR$/spring3" />
     <file type="web" url="file://$PROJECT_DIR$/spring37" />
+    <file type="web" url="file://$PROJECT_DIR$/springpractise" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
