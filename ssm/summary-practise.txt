@@ -12,4 +12,12 @@ Spring练习
     log4j.properties为日志配置文件,直接抄扔进去
 spring靠一个listener与web达成关系(contextloaderlistener),springmvc靠dispatcherServlet与web达成关系
 
-p95
+
+角色列表展示功能
+    点击角色管理菜单发送请求到服务器端（修改角色管理菜单的url地址）
+    创建RoleController和showList()方法
+    创建RoleService和showList()方法
+    创建RoleDao和findAll()方法
+    使用JdbcTemplate完成查询操作
+    将查询数据存储到Model中
+    转发到role-list.jsp页面进行展示
