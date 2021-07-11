@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="aaa" />
+        <module name="spring-Interceptor" />
         <module name="spring3" />
         <module name="spring37" />
         <module name="spring2" />
@@ -17,6 +17,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="aaa" target="1.7" />
       <module name="spring69" target="8" />
     </bytecodeTargetLevel>
   </component>

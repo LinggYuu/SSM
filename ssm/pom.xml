@@ -17,6 +17,7 @@
         <module>aaa</module>
         <module>jdbc</module>
         <module>springpractise</module>
+        <module>spring-Interceptor</module>
 
     </modules>
 
