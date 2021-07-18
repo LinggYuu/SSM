@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring-Interceptor" />
+        <module name="Spring_AOP" />
         <module name="spring3" />
         <module name="spring37" />
         <module name="spring2" />

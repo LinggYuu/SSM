@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+		">
+
+
+<!--    目标对象-->
+    <bean id="target" class="com.ly.AOP.Target"></bean>
+
+
+<!--    切面对象-->
+    <bean id="myAspect" class="com.ly.AOP.Aspect.MyAspect"></bean>
+
+    <!--    配置织入，在配置文件中告诉spring哪些方法（切点）需要被进行哪些增强（前置后置等），前提是有aop命名空间-->
+    <aop:config>
+<!--        声明切面，把切面对象放进去--><!--            切面：切点+通知-->
+        <aop:aspect ref="myAspect">
+
+            <!--            抽取切点表达式-->
+            <aop:pointcut id="myPointcut" expression="execution(public * com.ly.AOP.*.*(..))"/>
+
+<!--                前置增强，method:指定哪个方法是前置增强  pointcut  before方法是对哪些方法进行增强-->
+<!--            这边相当于是访问save方法时，save会被进行一个前置增强，而这个前置增强的功能逻辑代码在myAspect（上面那个bean）的before方法中封装-->
+<!--            aop:before是代表增强的类型 method是用于增强的方法的方法名，pointcut是切点表达式-->
+<!--            <aop:before method="abc" pointcut="execution(public void com.ly.AOP.Target.save())"/>-->
+<!--            <aop:before method="abc" pointcut="execution(public * com.ly.AOP.*.*(..))"/>-->
+<!--            <aop:after-returning method="after" pointcut="execution(public * com.ly.AOP.*.*(..))"/>-->
+<!--            <aop:around method="hr" pointcut="execution(public * com.ly.AOP.*.*(..))"/>-->
+<!--            <aop:after-throwing method="afterThrowing" pointcut="execution(public * com.ly.AOP.*.*(..))"/>-->
+<!--            <aop:after method="afterr" pointcut="execution(public * com.ly.AOP.*.*(..))"/>-->
+
+<!--            抽取了，以后要改的话只要改上面的expression就行-->
+            <aop:around method="hr" pointcut-ref="myPointcut"/>
+            <aop:after method="afterr" pointcut-ref="myPointcut"/>
+            
+
+        </aop:aspect>
+    </aop:config>
+
+
+
+</beans>

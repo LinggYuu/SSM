@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Spring_AOP/src/main/java/com/ly/AOP/Aspect/MyAspect.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Spring_AOP/src/main/java/com/ly/AOP/Target.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Spring_AOP/src/main/java/com/ly/AOP/TargetInterface.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Spring_AOP/src/main/java/com/ly/ZjAOP/MyAspect.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Spring_AOP/src/main/java/com/ly/ZjAOP/Target.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Spring_AOP/src/main/java/com/ly/ZjAOP/TargetInterface.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Spring_AOP/src/main/resources/applicationContex-annot.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Spring_AOP/src/main/resources/applicationContext-anno.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Spring_AOP/src/main/resources/applicationContext.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jdbc/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jdbc/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring1/src/main/java" charset="UTF-8" />
