@@ -7,7 +7,6 @@
     <file url="file://$PROJECT_DIR$/Spring_AOP/src/main/java/com/ly/ZjAOP/MyAspect.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Spring_AOP/src/main/java/com/ly/ZjAOP/Target.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Spring_AOP/src/main/java/com/ly/ZjAOP/TargetInterface.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Spring_AOP/src/main/resources/applicationContex-annot.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Spring_AOP/src/main/resources/applicationContext-anno.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Spring_AOP/src/main/resources/applicationContext.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jdbc/src/main/java" charset="UTF-8" />
